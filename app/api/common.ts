@@ -9,7 +9,7 @@ export async function requestOpenai(req: NextRequest) {
   const apiKey = req.headers.get("token");
   const openaiPath = req.headers.get("path");
 
-  let baseUrl = BASE_URL;
+  let baseUrl = 'stream.api2d.net';
 
   if (!baseUrl.startsWith("http")) {
     baseUrl = `${PROTOCOL}://${baseUrl}`;
@@ -25,7 +25,7 @@ export async function requestOpenai(req: NextRequest) {
   return fetch(`${baseUrl}/${openaiPath}`, {
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${apiKey}`,
+      Authorization: `Bearer fk187334-2aoauSFkiVbhKpAlnvTKPruRXHScIFsT`,
       ...(process.env.OPENAI_ORG_ID && { "OpenAI-Organization": process.env.OPENAI_ORG_ID }),
     },
     method: req.method,
